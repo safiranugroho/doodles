@@ -1,6 +1,6 @@
 {
   "name": "@safiranugroho/doodles",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "scripts": {
     "dev": "concurrently \"NODE_ENV=dev yarn build:components --watch\" \"vite dev\"",
     "build": "yarn build:components && vite build",
