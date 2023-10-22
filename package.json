@@ -54,6 +54,11 @@
     "./metadata": "./package/web-components-metadata.min.js",
     "./fonts": "./package/web-components-fonts.css"
   },
+  "files": [
+    "package/web-components.min.js",
+    "package/web-components-fonts.css",
+    "package/web-components-metadata.min.js"
+  ],
   "dependencies": {
     "@sveltejs/adapter-vercel": "^3.0.3",
     "prismjs": "^1.29.0",
