@@ -127,19 +127,24 @@ select::-ms-expand {
   display: none;
 }
 
-input::placeholder {
-  color: currentColor;
-  opacity: 0.8;
-}
-
-input:-ms-input-placeholder {
-  color: currentColor;
-  opacity: 0.8;
-}
-
 input::-webkit-input-placeholder {
   color: currentColor;
-  opacity: 0.8;
+  opacity: 0.5;
+}
+
+input::-moz-placeholder {
+  color: currentColor;
+  opacity: 0.5;
+}
+
+input::-ms-placeholder {
+  color: currentColor;
+  opacity: 0.5;
+}
+
+input::placeholder {
+  color: currentColor;
+  opacity: 0.5;
 }
 
 p {
