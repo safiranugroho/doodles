@@ -140,6 +140,8 @@
     border-radius: 16px;
     height: 65px;
     color: #60c1b6;
+
+    padding: 0 8px;
   }
 
   .modifier {
