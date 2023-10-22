@@ -56,8 +56,11 @@
   },
   "files": [
     "package/web-components.min.js",
+    "package/web-components.min.js.map",
     "package/web-components-fonts.css",
-    "package/web-components-metadata.min.js"
+    "package/web-components-metadata.min.js",
+    "package/web-components-metadata.min.js.map"
+
   ],
   "dependencies": {
     "@sveltejs/adapter-vercel": "^3.0.3",

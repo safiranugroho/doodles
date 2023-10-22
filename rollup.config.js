@@ -20,7 +20,7 @@ export default [{
   // The file that creates all web components.
   input: 'src/web-components.ts',
   output: {
-    sourcemap: !production,
+    sourcemap: true,
     format: 'iife',
     name: 'app',
     // Output it to public. This way, the SvelteKit
@@ -29,10 +29,12 @@ export default [{
   },
   watch: !production,
   plugins: [
-    typescript(),
+    typescript({
+      sourceMap: true,
+    }),
     svelte({
       preprocess: sveltePreprocess({
-        sourceMap: !production,
+        sourceMap: true,
         postcss: {
           plugins: [cssImport({ plugins: [cssImportUrl()] }), cssImportUrl(), cssVariables(), cssRemoveRoot(), cssAutoprefixer()]
         }
@@ -62,14 +64,16 @@ export default [{
 {
   input: 'src/web-components-metadata.ts',
   output: {
-    sourcemap: !production,
+    sourcemap: true,
     format: 'es',
     name: 'app',
     file: 'package/web-components-metadata.min.js',
   },
   watch: !production,
   plugins: [
-    typescript(),
+    typescript({
+      sourceMap: true,
+    }),
     resolve(),
     commonjs(),
     production && terser(),
