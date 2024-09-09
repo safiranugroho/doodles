@@ -7,7 +7,7 @@
 <Page>
   <Header
     slot="header"
-    heading="CSS filter"
+    heading="CSS filter playground"
     subheading="Explore CSS filter() via the sliders."
     completedDate={'22 January 2023'}
   />

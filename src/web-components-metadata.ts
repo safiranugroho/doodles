@@ -11,7 +11,7 @@ export type Doodle = {
 export const doodles: Doodle[] = [
   {
     slug: 'position',
-    title: 'CSS position',
+    title: 'CSS position playground',
     description: "No flex, no grid, just position.",
     componentName: 'Position',
     date: new Date('2023-02-01'),
@@ -19,7 +19,7 @@ export const doodles: Doodle[] = [
   },
   {
     slug: 'filter',
-    title: 'CSS filter',
+    title: 'CSS filter playground',
     description: "Explore CSS filter() via the sliders.",
     componentName: 'Filter',
     date: new Date('2023-01-22'),

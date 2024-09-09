@@ -18,12 +18,12 @@ type Routes = { [key: string]: Route };
 export default {
   '/position': {
     next: '/filter',
-    name: 'CSS position',
+    name: 'CSS position playground',
     cover: position
   },
   '/filter': {
     next: '/ball',
-    name: 'CSS filter',
+    name: 'CSS filter playground',
     cover: filter,
     prev: '/position'
   },

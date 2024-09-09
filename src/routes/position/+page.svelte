@@ -7,7 +7,7 @@
 <Page>
   <Header
     slot="header"
-    heading="CSS position"
+    heading="CSS position playground"
     subheading="No flex, no grid, just position."
     completedDate="1 February 2023"
   />
