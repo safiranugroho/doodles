@@ -60,7 +60,6 @@
     "package/web-components-fonts.css",
     "package/web-components-metadata.min.js",
     "package/web-components-metadata.min.js.map"
-
   ],
   "dependencies": {
     "@sveltejs/adapter-vercel": "^3.0.3",
@@ -72,6 +71,6 @@
     "url": "https://github.com/safiranugroho/doodles.git"
   },
   "engines": {
-    "node":"^18.17 || >=20.6.1"
+    "node": "^18.x"
   }
 }
