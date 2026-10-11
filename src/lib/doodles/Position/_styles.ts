@@ -13,8 +13,8 @@ export const generateCss = (s: Styles) => ({
 export interface Property {
   value: string | number;
   unit: string;
-  toText: Function;
-  update: Function;
+  toText: (this: Property) => string;
+  update: (this: Property, value: string | number, unit?: string) => void;
 }
 
 export type OffsetName = 'top' | 'bottom' | 'left' | 'right';

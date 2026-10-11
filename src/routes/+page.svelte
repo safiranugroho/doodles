@@ -1,12 +1,12 @@
 <script lang="ts">
-  import Page from '$lib/components/Page.svelte';
+  import Page from '#lib/components/Page.svelte';
 
-  import blog from '$lib/assets/blog-icon.png';
-  import github from '$lib/assets/github.png';
-  import twitter from '$lib/assets/twitter.png';
-  import linkedin from '$lib/assets/linkedin.png';
+  import blog from '#lib/assets/blog-icon.png';
+  import github from '#lib/assets/github.png';
+  import twitter from '#lib/assets/twitter.png';
+  import linkedin from '#lib/assets/linkedin.png';
 
-  import Routes from '$lib/components/Routes.svelte';
+  import Routes from '#lib/components/Routes.svelte';
 </script>
 
 <Page>

@@ -1,42 +1,42 @@
-import type { SvelteComponent } from 'svelte'
-import Ball from './lib/doodles/Ball/index.svelte'
-import Filter from './lib/doodles/Filter/index.svelte'
-import Keyboard from './lib/doodles/Keyboard/index.svelte'
-import Position from './lib/doodles/Position/index.svelte'
-import Rps from './lib/doodles/Rps/index.svelte'
-import TipCalculator from './lib/doodles/TipCalculator/index.svelte'
-import Weather from './lib/doodles/Weather/index.svelte'
+import type { SvelteComponent } from 'svelte';
+import Ball from './lib/doodles/Ball/index.svelte';
+import Filter from './lib/doodles/Filter/index.svelte';
+import Keyboard from './lib/doodles/Keyboard/index.svelte';
+import Position from './lib/doodles/Position/index.svelte';
+import Rps from './lib/doodles/Rps/index.svelte';
+import TipCalculator from './lib/doodles/TipCalculator/index.svelte';
+import Weather from './lib/doodles/Weather/index.svelte';
 
 import './fonts.css';
 
 const doodles = [
   {
     slug: 'position',
-    component: Position,
+    component: Position
   },
   {
     slug: 'filter',
-    component: Filter,
+    component: Filter
   },
   {
     slug: 'ball',
-    component: Ball,
+    component: Ball
   },
   {
     slug: 'rps',
-    component: Rps,
+    component: Rps
   },
   {
     slug: 'weather',
-    component: Weather,
+    component: Weather
   },
   {
     slug: 'tip-calculator',
-    component: TipCalculator,
+    component: TipCalculator
   },
   {
     slug: 'keyboard',
-    component: Keyboard,
+    component: Keyboard
   }
 ];
 
@@ -46,18 +46,18 @@ function defineCustomElement(name: string, Component: any) {
     name,
     class extends HTMLElement {
       _element: SvelteComponent;
-      
+
       constructor() {
-        super()
-    
+        super();
+
         // Create the shadow root.
-        const shadowRoot = this.attachShadow({ mode: 'open' })
-    
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+
         // Instantiate the Svelte Component
         this._element = new Component({
           // Tell it that it lives in the shadow root
-          target: shadowRoot,
-        })
+          target: shadowRoot
+        });
       }
       disconnectedCallback(): void {
         // Destroy the Svelte component when this web component gets
@@ -67,7 +67,7 @@ function defineCustomElement(name: string, Component: any) {
         this._element?.$destroy();
       }
     }
-  )
+  );
 }
 
 doodles.forEach((d) => {

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Page from '$lib/components/Page.svelte';
-  import Header from '$lib/components/Header.svelte';
-  import ExternalLink from '$lib/components/ExternalLink.svelte';
-  import Rps from '$lib/doodles/Rps/index.svelte';
+  import Page from '#lib/components/Page.svelte';
+  import Header from '#lib/components/Header.svelte';
+  import ExternalLink from '#lib/components/ExternalLink.svelte';
+  import Rps from '#lib/doodles/Rps/index.svelte';
 </script>
 
 <Page>

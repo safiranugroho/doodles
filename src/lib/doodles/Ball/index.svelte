@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="ball" />
+  <div class="ball"></div>
 </div>
 
 <style>

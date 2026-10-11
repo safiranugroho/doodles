@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Page from '$lib/components/Page.svelte';
-  import Header from '$lib/components/Header.svelte';
-  import ExternalLink from '$lib/components/ExternalLink.svelte';
-  import Keyboard from '$lib/doodles/Keyboard/index.svelte';
+  import Page from '#lib/components/Page.svelte';
+  import Header from '#lib/components/Header.svelte';
+  import ExternalLink from '#lib/components/ExternalLink.svelte';
+  import Keyboard from '#lib/doodles/Keyboard/index.svelte';
 </script>
 
 <Page background="#f6f6f6">
@@ -23,6 +23,6 @@
 
 <style>
   .container {
-    width: 100%
+    width: 100%;
   }
 </style>

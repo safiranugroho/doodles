@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import picture from '$lib/assets/filter-picture.jpeg';
-  import Code from '$lib/components/Code.svelte';
+  import picture from '#lib/assets/filter-picture.jpeg';
+  import Code from '#lib/components/Code.svelte';
 
   import filters, { defaultFilters } from './_filters';
 
-  $: all = defaultFilters;
+  let all = defaultFilters;
   $: css = Object.entries(all).reduce(
     (a, [name, s]) => (s.value !== s.default ? `${a} ${name}(${s.value}${s.unit})` : a),
     ''
@@ -42,13 +42,18 @@
 <div class="container">
   <div class="view-container">
     <div class="asset">
-      <img bind:this={img} src={picture} class="asset-img" alt="Two people at the beach with a sun umbrella" />
+      <img
+        bind:this={img}
+        src={picture}
+        class="asset-img"
+        alt="Two people at the beach with a sun umbrella"
+      />
     </div>
     <Code content={`filter:${css || ' none'};`} language="css" />
   </div>
   <div class="range-container">
     <button class="range-reset all" on:click={resetAll}>Reset all</button>
-    {#each Object.entries(all) as [s, a]}
+    {#each Object.entries(all) as [s, a] (s)}
       <div class="range">
         <p class="range-label">
           <span class="name">{s}</span><span class="value">{a.value}{a.unit}</span>

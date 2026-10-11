@@ -1,15 +1,15 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import cloudy from '$lib/assets/cloudy.svg';
-  import partlyCloudy from '$lib/assets/partly-cloudy.svg';
-  import rainy from '$lib/assets/rainy.svg';
-  import sunny from '$lib/assets/sunny.svg';
-  import snowy from '$lib/assets/snowy.svg';
-  import stormy from '$lib/assets/stormy.svg';
+  import cloudy from '#lib/assets/cloudy.svg';
+  import partlyCloudy from '#lib/assets/partly-cloudy.svg';
+  import rainy from '#lib/assets/rainy.svg';
+  import sunny from '#lib/assets/sunny.svg';
+  import snowy from '#lib/assets/snowy.svg';
+  import stormy from '#lib/assets/stormy.svg';
 
-  import PrecipitationIcon from '$lib/assets/precipitation.svelte';
-  import TemperatureIcon from '$lib/assets/temperature.svelte';
+  import PrecipitationIcon from '#lib/assets/precipitation.svelte';
+  import TemperatureIcon from '#lib/assets/temperature.svelte';
 
   const weekday = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
@@ -18,7 +18,7 @@
       case '0':
         return {
           className: 'sunny',
-          icon: sunny,
+          icon: sunny
         };
       case '1':
       case '2':
@@ -27,7 +27,7 @@
       case '48':
         return {
           className: 'cloudy',
-          icon: partlyCloudy,
+          icon: partlyCloudy
         };
       case '51':
       case '53':
@@ -36,7 +36,7 @@
       case '57':
         return {
           className: 'cloudy',
-          icon: cloudy,
+          icon: cloudy
         };
       case '61':
       case '63':
@@ -48,7 +48,7 @@
       case '82':
         return {
           className: 'rainy',
-          icon: rainy,
+          icon: rainy
         };
       case '71':
       case '73':
@@ -58,21 +58,30 @@
       case '86':
         return {
           className: 'snowy',
-          icon: snowy,
+          icon: snowy
         };
       case '95':
       case '96':
       case '99':
         return {
           className: 'stormy',
-          icon: stormy,
+          icon: stormy
         };
     }
   };
 
-  $: map = {} as { [key: string]: any };
-  $: suburb = '';
-  $: state = '';
+  type Forecast = {
+    day: string;
+    date: string;
+    weather: ReturnType<typeof getWeatherByCode>;
+    precipitation: number;
+    temperatureMax: number;
+    temperatureMin: number;
+  };
+
+  let map: Record<string, Forecast> = {};
+  let suburb = '';
+  let state = '';
 
   onMount(() => {
     navigator.geolocation.getCurrentPosition(async (position) => {
@@ -110,12 +119,12 @@
 <div class="container">
   {#if Object.keys(map).length > 0}
     <div class="weather-container">
-      {#each Object.keys(map) as day}
+      {#each Object.keys(map) as day (day)}
         <div class="date-container">
           <p class="day">{map[day].day}</p>
           <p class="date">{map[day].date}</p>
-          <div class="info-container {map[day].weather.className}">
-            <img src={map[day].weather.icon} alt="Weather icon" class="weather-icon" />
+          <div class="info-container {map[day].weather?.className ?? ''}">
+            <img src={map[day].weather?.icon} alt="Weather icon" class="weather-icon" />
             <p class="temp-max">
               {map[day].temperatureMax.toFixed(0)}<span class="degree">°</span>
             </p>
@@ -138,10 +147,10 @@
     <p class="loc">(Precipitation reading in mm, temperature in Celcius.)</p>
   {:else}
     <div class="lds-ring">
-      <div />
-      <div />
-      <div />
-      <div />
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   {/if}
 </div>
@@ -195,43 +204,42 @@
   }
 
   .sunny {
-    background: #E6DF95
+    background: #e6df95;
   }
 
   .cloudy {
-    background: #4DB0D3
+    background: #4db0d3;
   }
 
   .rainy {
-    background: #2B8BAD
+    background: #2b8bad;
   }
 
-
   .snowy {
-    background: #BCE1EF
+    background: #bce1ef;
   }
 
   .stormy {
-    background: #0E2E3A
+    background: #0e2e3a;
   }
 
   .sunny > .temp-max {
-    color: #4DB0D3
+    color: #4db0d3;
   }
 
   .rainy > .temp-max,
   .cloudy > .temp-max,
   .stormy > .temp-max {
-    color: #E6DF95
+    color: #e6df95;
   }
 
   .snowy > .temp-max {
-    color: #0E2E3A
+    color: #0e2e3a;
   }
 
   .sunny > .prec,
   .sunny > .temp-min {
-    color: #247490
+    color: #247490;
   }
 
   .rainy > .prec,
@@ -240,14 +248,13 @@
   .cloudy > .temp-min,
   .stormy > .prec,
   .stormy > .temp-min {
-    color: #D3EBF4
+    color: #d3ebf4;
   }
 
   .snowy > .prec,
   .snowy > .temp-min {
-    color: #247490
+    color: #247490;
   }
-
 
   .day,
   .date {

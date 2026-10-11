@@ -1,8 +1,8 @@
 <script lang="ts">
   import Prism from 'prismjs';
   import { createEventDispatcher } from 'svelte';
-  import CopyIcon from '$lib/assets/copy-icon.svelte';
-    import Icon from './Icon.svelte';
+  import CopyIcon from '#lib/assets/copy-icon.svelte';
+  import Icon from './Icon.svelte';
 
   export let content: string;
   export let language: string;
@@ -29,6 +29,7 @@
 <div class="code-container">
   <div class="code">
     <code class="code-content">
+      <!-- eslint-disable-next-line svelte/no-at-html-tags -- Prism escapes the source; content is author-controlled -->
       {@html Prism.highlight(content, Prism.languages[language], language)}
     </code>
     <button on:click={copy} class="code-copy-button">

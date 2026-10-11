@@ -15,7 +15,7 @@
 </script>
 
 <p class="text">
-  {#each redactedParagraphs as p}
+  {#each redactedParagraphs as p, i (i)}
     <span>{p}</span>
   {/each}
 </p>

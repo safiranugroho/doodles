@@ -1,15 +1,14 @@
 <script lang="ts">
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
+  import { toStore } from 'svelte/store';
 
   import Footer from './Footer.svelte';
   import Head from './Head.svelte';
 
   export let background = '';
 
-  let showFooter = false;
-  $: page.subscribe((p) => {
-    showFooter = p.url.pathname !== '/';
-  });
+  const pathname = toStore(() => page.url.pathname);
+  $: showFooter = $pathname !== '/';
 </script>
 
 <Head />

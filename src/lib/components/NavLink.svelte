@@ -4,18 +4,19 @@
 
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
+  import { toStore } from 'svelte/store';
 
-  import arrowPrev from '$lib/assets/arrow-prev.png';
-  import arrowNext from '$lib/assets/arrow-next.png';
+  import arrowPrev from '#lib/assets/arrow-prev.png';
+  import arrowNext from '#lib/assets/arrow-next.png';
   import { goto } from '$app/navigation';
 
   import routes, { type Route } from '../../routes';
 
   export let prev = false;
 
-  page.subscribe((p) => {
-    const doodle = routes[p.url.pathname];
+  toStore(() => page.url.pathname).subscribe((pathname) => {
+    const doodle = routes[pathname];
     if (!doodle) current = {};
     if (doodle && current.name !== doodle.name) current = doodle;
   });

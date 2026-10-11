@@ -1,18 +1,18 @@
-export type Screen = 'mobile' | 'tablet' | 'desktop' | 'all'
+export type Screen = 'mobile' | 'tablet' | 'desktop' | 'all';
 export type Doodle = {
-  slug: string,
-  title: string,
-  description: string,
-  componentName: string,
-  date: Date,
-  screen: Screen[]
-}
+  slug: string;
+  title: string;
+  description: string;
+  componentName: string;
+  date: Date;
+  screen: Screen[];
+};
 
 export const doodles: Doodle[] = [
   {
     slug: 'position',
     title: 'CSS position playground',
-    description: "No flex, no grid, just position.",
+    description: 'No flex, no grid, just position.',
     componentName: 'Position',
     date: new Date('2023-02-01'),
     screen: ['all']
@@ -20,7 +20,7 @@ export const doodles: Doodle[] = [
   {
     slug: 'filter',
     title: 'CSS filter playground',
-    description: "Explore CSS filter() via the sliders.",
+    description: 'Explore CSS filter() via the sliders.',
     componentName: 'Filter',
     date: new Date('2023-01-22'),
     screen: ['all']
@@ -36,7 +36,7 @@ export const doodles: Doodle[] = [
   {
     slug: 'rps',
     title: 'Rock paper scissors',
-    description: "Shoot!",
+    description: 'Shoot!',
     componentName: 'Rps',
     date: new Date('2023-01-19'),
     screen: ['all']
@@ -52,7 +52,7 @@ export const doodles: Doodle[] = [
   {
     slug: 'tip-calculator',
     title: 'Tip calculator',
-    description: "Input the bill amount and number of people, and select a tip percentage.",
+    description: 'Input the bill amount and number of people, and select a tip percentage.',
     componentName: 'TipCalculator',
     date: new Date('2023-01-17'),
     screen: ['desktop']
@@ -60,7 +60,7 @@ export const doodles: Doodle[] = [
   {
     slug: 'keyboard',
     title: 'Keyboard',
-    description: "My keyboard jiggle jiggles - press the key on your keyboard to stop the jiggle.",
+    description: 'My keyboard jiggle jiggles - press the key on your keyboard to stop the jiggle.',
     componentName: 'Keyboard',
     date: new Date('2023-01-16'),
     screen: ['desktop']

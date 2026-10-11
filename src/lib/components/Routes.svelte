@@ -3,7 +3,7 @@
 </script>
 
 <div class="container">
-  {#each Object.keys(routes) as path}
+  {#each Object.keys(routes) as path (path)}
     <div class="card">
       <a href={path}><img src={routes[path].cover} alt={routes[path].name} /></a>
     </div>

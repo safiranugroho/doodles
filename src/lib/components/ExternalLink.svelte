@@ -11,7 +11,7 @@
 
   .external-link::after {
     content: '';
-    background-image: url('$lib/assets/external-link.png');
+    background-image: url('#lib/assets/external-link.png');
     display: inline-block;
     height: 1em;
     width: 1em;

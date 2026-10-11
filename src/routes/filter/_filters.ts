@@ -6,7 +6,7 @@ type Filter = {
   value: number;
   min: number;
   max: number;
-  update: Function;
+  update: (this: Filter, v: number) => void;
 };
 
 type Filters = {

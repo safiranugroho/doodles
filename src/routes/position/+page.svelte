@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Page from '$lib/components/Page.svelte';
-  import Header from '$lib/components/Header.svelte';
-  import Position from '$lib/doodles/Position/index.svelte';
+  import Page from '#lib/components/Page.svelte';
+  import Header from '#lib/components/Header.svelte';
+  import Position from '#lib/doodles/Position/index.svelte';
 </script>
 
 <Page>
@@ -23,7 +23,6 @@
 
   @media screen and (min-width: 1024px) {
     .container {
-
       max-width: 70%;
       margin: auto;
     }

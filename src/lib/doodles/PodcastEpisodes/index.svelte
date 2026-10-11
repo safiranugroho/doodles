@@ -1,12 +1,12 @@
 <script lang="ts">
-  import cover from '$lib/assets/podcast-cover.png';
+  import cover from '#lib/assets/podcast-cover.png';
 </script>
 
 <div class="container">
   <img class="cover" alt="Compressed.fm podcast cover" src={cover} />
   <div class="list">
     <p class="title">Listen to all the Compressed.fm episodes</p>
-    {#each ['Trailer', "James Q's Quick Origin Story", "Amy Dutton's Origin Story", 'Tech Behind the Podcast', 'Tech Behind SelfTeach.me', 'Freelancing (Part 1)'] as episode, i}
+    {#each ['Trailer', "James Q's Quick Origin Story", "Amy Dutton's Origin Story", 'Tech Behind the Podcast', 'Tech Behind SelfTeach.me', 'Freelancing (Part 1)'] as episode, i (episode)}
       <div>
         <input type="checkbox" id={String(i)} class="checkbox" />
         <label for={String(i)} class="checkbox-label">{String(i + 1)} / {episode}</label>
@@ -71,7 +71,7 @@
 
   .checkbox-label::before {
     content: '';
-    background-image: url('$lib/assets/checkbox--unchecked.svg');
+    background-image: url('#lib/assets/checkbox--unchecked.svg');
     background-size: cover;
     display: inline-block;
     vertical-align: middle;
@@ -83,7 +83,7 @@
 
   .checkbox:checked + .checkbox-label::before {
     content: '';
-    background-image: url('$lib/assets/checkbox--checked.svg');
+    background-image: url('#lib/assets/checkbox--checked.svg');
   }
 
   .checkbox:checked + .checkbox-label {

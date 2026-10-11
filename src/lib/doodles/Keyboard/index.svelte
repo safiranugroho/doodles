@@ -61,27 +61,27 @@
 
 <div class="keyboard" bind:this={keyboard}>
   <div class="row">
-    {#each keys[0] as char}
+    {#each keys[0] as char (char)}
       <div class="key" id={char}>{char}</div>
     {/each}
     <div class="key modifier" id="backspace">del</div>
   </div>
   <div class="row">
     <div class="key modifier" id="tab">tab</div>
-    {#each keys[1] as char}
+    {#each keys[1] as char (char)}
       <div class="key" id={char}>{char}</div>
     {/each}
   </div>
   <div class="row">
     <div class="key modifier" id="capslock">caps</div>
-    {#each keys[2] as char}
+    {#each keys[2] as char (char)}
       <div class="key" id={char}>{char}</div>
     {/each}
     <div class="key modifier" id="enter">enter</div>
   </div>
   <div class="row">
     <div class="key modifier" id="shift">shift</div>
-    {#each keys[3] as char}
+    {#each keys[3] as char (char)}
       <div class="key" id={char}>{char}</div>
     {/each}
     <div class="key modifier" id="shift">shift</div>

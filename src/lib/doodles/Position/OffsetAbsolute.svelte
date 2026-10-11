@@ -50,7 +50,8 @@
       </button>
     </span>
     <span>
-      (Spoiler alert: it anchors itself to {'<body>'} as it has no other positioned block ancestors!)
+      (Spoiler alert: it anchors itself to &lt;body&gt; as it has no other positioned block
+      ancestors!)
     </span>
     <button
       class="inline-button"

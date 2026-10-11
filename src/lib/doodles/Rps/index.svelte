@@ -1,9 +1,9 @@
 <script lang="ts">
   import { setContext } from 'svelte';
 
-  import rock from '$lib/assets/rock.png';
-  import paper from '$lib/assets/paper.png';
-  import scissors from '$lib/assets/scissors.png';
+  import rock from '#lib/assets/rock.png';
+  import paper from '#lib/assets/paper.png';
+  import scissors from '#lib/assets/scissors.png';
 
   import Result from './Result.svelte';
 
@@ -37,8 +37,8 @@
         playerHand === computerHand
           ? 'draw'
           : hands[playerHand].defeats(computerHand)
-          ? 'player'
-          : 'computer';
+            ? 'player'
+            : 'computer';
     }
   }
 
@@ -54,7 +54,7 @@
 <div class="game-container">
   <p class="title">pick one</p>
   <fieldset class="hands">
-    {#each Object.keys(hands) as hand}
+    {#each Object.keys(hands) as hand (hand)}
       <input
         class="hand-checkbox"
         type="radio"

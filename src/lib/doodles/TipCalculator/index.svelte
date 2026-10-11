@@ -1,6 +1,6 @@
 <script lang="ts">
-  import dollarIcon from '$lib/assets/dollar.svg';
-  import peopleIcon from '$lib/assets/people.svg';
+  import dollarIcon from '#lib/assets/dollar.svg';
+  import peopleIcon from '#lib/assets/people.svg';
 
   let billAmount: number | null = null;
   let numberOfPeople: number | null = null;
@@ -20,7 +20,8 @@
 
   function handleCalculate() {
     totalTipAmount = tipAmount && billAmount ? billAmount * (tipAmount * 0.01) : 0;
-    totalPerPerson = billAmount && numberOfPeople ? (billAmount + totalTipAmount) / numberOfPeople : 0;
+    totalPerPerson =
+      billAmount && numberOfPeople ? (billAmount + totalTipAmount) / numberOfPeople : 0;
   }
 </script>
 
@@ -38,7 +39,7 @@
   <div class="output">
     <div class="description">
       <span class="label">Total per person</span>
-      <span class="label">Bill + tip amount<br/>divided by number of people</span>
+      <span class="label">Bill + tip amount<br />divided by number of people</span>
     </div>
     <p class="value">
       <span class="currency">$</span>
@@ -62,7 +63,7 @@
     </div>
   </div>
   <fieldset class="tip-amount">
-    {#each [5, 10, 15, 20] as amount}
+    {#each [5, 10, 15, 20] as amount (amount)}
       <input
         type="radio"
         id={`${amount}-percent`}

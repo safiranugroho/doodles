@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Page from '$lib/components/Page.svelte';
+  import Page from '#lib/components/Page.svelte';
 
   let value: string;
-  $: colors = [] as string[];
+  let colors: string[] = [];
 
   const isValidHex = (s: string): boolean => /^#([0-9A-F]{3}){1,2}$/i.test(s);
 
@@ -18,11 +18,11 @@
 
 <Page>
   <div class="container" slot="content">
-    <label for="color-input" />
+    <label for="color-input"></label>
     <input id="color-input" type="text" bind:value on:change={handleColorInput} />
     <div class="colors-container">
-      {#each colors as color}
-        <div class="color-box" style="--color: {color};" />
+      {#each colors as color, i (i)}
+        <div class="color-box" style="--color: {color};"></div>
       {/each}
     </div>
   </div>

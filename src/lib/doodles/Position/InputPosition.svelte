@@ -7,13 +7,8 @@
 
 <div class="position-select-container">
   <label for="position">I want to position the picture</label>
-  <select
-    bind:value={currentPosition.value}
-    name="position"
-    id="position"
-    class="position-select"
-  >
-    {#each Object.entries(rules) as [name, { text }]}
+  <select bind:value={currentPosition.value} name="position" id="position" class="position-select">
+    {#each Object.entries(rules) as [name, { text }] (name)}
       <option value={name} class="position-option">{text}</option>
     {/each}
   </select>

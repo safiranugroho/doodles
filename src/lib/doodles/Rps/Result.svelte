@@ -1,8 +1,8 @@
 <script>
   import { fly } from 'svelte/transition';
 
-  import computerBg from '$lib/assets/computer-wins.svg';
-  import playerBg from '$lib/assets/you-win.svg';
+  import computerBg from '#lib/assets/computer-wins.svg';
+  import playerBg from '#lib/assets/you-win.svg';
   import { getContext } from 'svelte';
 
   /**

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import InfoIcon from '$lib/assets/info-icon.svelte';
-  import Icon from '$lib/components/Icon.svelte';
+  import InfoIcon from '#lib/assets/info-icon.svelte';
+  import Icon from '#lib/components/Icon.svelte';
 </script>
 
 <details class="container">

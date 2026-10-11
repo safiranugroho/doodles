@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Header from '$lib/components/Header.svelte';
-  import Page from '$lib/components/Page.svelte';
-  import Ball from '$lib/doodles/Ball/index.svelte';
+  import Header from '#lib/components/Header.svelte';
+  import Page from '#lib/components/Page.svelte';
+  import Ball from '#lib/doodles/Ball/index.svelte';
 </script>
 
 <Page>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { SvelteComponent } from 'svelte';
-  import Code from '$lib/components/Code.svelte';
-  import img from '$lib/assets/grace-hopper.jpg';
+  import Code from '#lib/components/Code.svelte';
+  import img from '#lib/assets/grace-hopper.jpg';
 
   import rules from './_rules';
   import writableStyles, {
@@ -26,8 +26,8 @@
     sticky: OffsetSticky
   } as { [key: string]: typeof SvelteComponent };
 
-  $: currentStyles = defaultStyles;
-  $: currentPosition = defaultStyles.child.position;
+  let currentStyles = defaultStyles;
+  let currentPosition = defaultStyles.child.position;
 
   $: css = generateCss(currentStyles);
   $: cssText = `
@@ -53,12 +53,11 @@
 
   const handleInputOffset =
     (name: OffsetName) => (e: Event & { currentTarget: EventTarget & HTMLInputElement }) => {
-      e.currentTarget.value.length === 0
-        ? resetOffset(name)
-        : updateOffset(name, Number(e.currentTarget.value));
+      if (e.currentTarget.value.length === 0) resetOffset(name);
+      else updateOffset(name, Number(e.currentTarget.value));
     };
 
-  $: imageOnTop = true;
+  let imageOnTop = true;
   const switchImagePositionInMarkup = () => (imageOnTop = !imageOnTop);
 
   $: {
@@ -71,6 +70,7 @@
     });
   }
 </script>
+
 <div class="container">
   <div class="view-container">
     <div class="asset">
@@ -112,7 +112,7 @@
     flex: 1;
 
     width: 100%;
-    
+
     display: grid;
     gap: 48px;
   }

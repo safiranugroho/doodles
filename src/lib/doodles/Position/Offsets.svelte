@@ -1,15 +1,15 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import InputOffset, { type OnInput } from './InputOffset.svelte';
-  import writeableStyles, { P, type OffsetName, type Styles } from './_styles';
+  import writeableStyles, { type OffsetName, type Styles } from './_styles';
 
   export let currentStyles: Styles;
   export let onInput: (name: string) => OnInput;
 
   const positions = ['top', 'bottom', 'left', 'right'] as Array<OffsetName>;
 
-  $: showVerticalOffsetInfo = false;
-  $: showHorizontalOffsetInfo = false;
+  let showVerticalOffsetInfo = false;
+  let showHorizontalOffsetInfo = false;
 
   onMount(() => {
     writeableStyles.subscribe((s) => {
@@ -31,7 +31,7 @@
   });
 </script>
 
-{#each positions as name}
+{#each positions as name (name)}
   <InputOffset
     {name}
     value={currentStyles.child[name]?.value}
