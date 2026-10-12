@@ -1,4 +1,4 @@
-import type { SvelteComponent } from 'svelte';
+import { mount, unmount } from 'svelte';
 import Ball from './lib/doodles/Ball/index.svelte';
 import Filter from './lib/doodles/Filter/index.svelte';
 import Keyboard from './lib/doodles/Keyboard/index.svelte';
@@ -45,7 +45,7 @@ function defineCustomElement(name: string, Component: any) {
   customElements.define(
     name,
     class extends HTMLElement {
-      _element: SvelteComponent;
+      _element: Record<string, unknown> | undefined;
 
       constructor() {
         super();
@@ -54,7 +54,7 @@ function defineCustomElement(name: string, Component: any) {
         const shadowRoot = this.attachShadow({ mode: 'open' });
 
         // Instantiate the Svelte Component
-        this._element = new Component({
+        this._element = mount(Component, {
           // Tell it that it lives in the shadow root
           target: shadowRoot
         });
@@ -64,7 +64,8 @@ function defineCustomElement(name: string, Component: any) {
         // disconnected. If this web component is expected to be moved
         // in the DOM, then you need to use `connectedCallback()` and
         // set it up again if necessary.
-        this._element?.$destroy();
+        if (this._element) unmount(this._element);
+        this._element = undefined;
       }
     }
   );

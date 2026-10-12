@@ -53,7 +53,7 @@ export default [
         // into the page that imports this script.
         emitCss: false
       }),
-      resolve(),
+      resolve({ browser: true, exportConditions: ['svelte'] }),
       postcss({
         minify: production,
         include: [path.resolve('src/fonts.css')],
